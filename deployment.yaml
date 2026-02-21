@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-vuln
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-vuln
+  template:
+    metadata:
+      labels:
+        app: springboot-vuln
+    spec:
+      containers:
+        - name: app
+          image: vindhyajee5/springboot-vuln:1
+          ports:
+            - containerPort: 8080
